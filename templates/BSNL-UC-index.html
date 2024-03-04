@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BSNL UCs - Machhiwara Cable Network</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 80%;
+            margin-top: 20px;
+        }
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .table th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        .light-yellow {
+            background-color: #fff3cd;
+        }
+        .light-red {
+            background-color: #f8d7da;
+        }
+        footer {
+            margin-top: 20px;
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+        }
+        #toggleBtn {
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>{{ header_text }}</h2>
+    <h6>Last Updated: {{ last_updated_time }}</h6>
+    <button id="toggleBtn" class="btn btn-primary" onclick="toggleView()">CHANGE VIEW</button>
+    <div id="compactView">
+        <h5>Compact View</h5>
+        {{ compact_data | safe }}
+    </div>
+    <div id="detailedView" style="display: none;">
+        <h5>Detailed View</h5>
+        {{ detailed_data | safe }}
+    </div>
+    <script>
+        function toggleView() {
+            var compactView = document.getElementById("compactView");
+            var detailedView = document.getElementById("detailedView");
+
+            if (compactView.style.display === "none") {
+                compactView.style.display = "block";
+                detailedView.style.display = "none";
+            } else {
+                compactView.style.display = "none";
+                detailedView.style.display = "block";
+            }
+        }
+    </script>
+    <script>
+        window.onload = function() {
+            var cells = document.querySelectorAll('.bbc-approved');
+            cells.forEach(function(cell) {
+                if (cell.innerHTML.trim() === 'Pending') {
+                    cell.style.backgroundColor = '#fff3cd';
+                } else if (cell.innerHTML.trim() === 'R') {
+                    cell.style.backgroundColor = '#f8d7da';
+                }
+            });
+        };
+    </script>
+    <footer>
+        Developed by D2 Automation | Navdeep Singh
+    </footer>
+</body>
+</html>
