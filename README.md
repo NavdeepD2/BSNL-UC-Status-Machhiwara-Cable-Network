@@ -9,3 +9,7 @@ pip install flask pandas paramiko
 
 
 - Once browsed, It will filter them, merge in a single file, and will uploaded via SSH to Linux server where Python Flask (207-BSNL-UC-Flask.py) will run.
+
+- After configuring Python Flask with Apache or Nginx, following web page you'll get.
+
+![image](https://github.com/NavdeepD2/BSNL-UC-Status-Machhiwara-Cable-Network/assets/32217733/d1c76483-d78b-4b32-95c9-7dfad1ee329b)
